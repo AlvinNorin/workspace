@@ -1,0 +1,12 @@
+package io.github.alvinnorin.agar;
+
+import java.awt.image.BufferedImage;
+import java.util.HashMap;
+
+import org.bukkit.entity.Player;
+
+public class food {
+
+	static HashMap<Integer, Integer> agars = new HashMap();
+	
+}

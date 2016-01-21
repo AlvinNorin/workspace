@@ -1,0 +1,58 @@
+package io.github.alvinnorin.agar;
+
+import java.util.HashMap;
+
+import org.bukkit.command.CommandExecutor;
+import org.bukkit.entity.Player;
+import org.bukkit.event.Listener;
+import org.bukkit.plugin.Plugin;
+import org.bukkit.plugin.PluginDescriptionFile;
+import org.bukkit.plugin.PluginManager;
+import org.bukkit.plugin.java.JavaPlugin;
+
+public class agar
+extends JavaPlugin {
+    private final SamplePlayerListener playerListener;
+    private final SampleBlockListener blockListener;
+    private final btc btcListener;
+    private final HashMap<Player, Boolean> debugees;
+
+    public agar() {
+        this.playerListener = new SamplePlayerListener(this);
+        this.blockListener = new SampleBlockListener();
+        this.btcListener = new btc(this);
+        this.debugees = new HashMap();
+    }
+
+    public void onDisable() {
+        this.getLogger().info("Goodbye world!");
+    }
+
+    public void onEnable() {
+        PluginManager pm = this.getServer().getPluginManager();
+        pm.registerEvents((Listener)this.playerListener, (Plugin)this);
+        pm.registerEvents((Listener)this.blockListener, (Plugin)this);
+        pm.registerEvents((Listener)this.btcListener, (Plugin)this);
+        this.getCommand("pos").setExecutor((CommandExecutor)new SamplePosCommand());
+        this.getCommand("debug").setExecutor((CommandExecutor)new SampleDebugCommand(this));
+        this.getCommand("deb").setExecutor((CommandExecutor)new btc(this));
+        PluginDescriptionFile pdfFile = this.getDescription();
+        this.getLogger().info(pdfFile.getName() + " version " + pdfFile.getVersion() + " is enabled!");
+        schedule.enable((Plugin)btc.plugin);
+        btc.enable();
+    }
+
+    public void onLoad() {
+    }
+
+    public boolean isDebugging(Player player) {
+        if (this.debugees.containsKey((Object)player)) {
+            return this.debugees.get((Object)player);
+        }
+        return false;
+    }
+
+    public void setDebugging(Player player, boolean value) {
+        this.debugees.put(player, value);
+    }
+}

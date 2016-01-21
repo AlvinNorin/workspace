@@ -1,0 +1,23 @@
+package io.github.alvinnorin.agar;
+
+import java.util.HashMap;
+
+import org.bukkit.entity.Player;
+
+public class matrix {
+
+	static HashMap<Player, Integer> owned_x = new HashMap();
+	static HashMap<Player, Integer> owned_z = new HashMap();
+	static HashMap<Player, Integer> owned = new HashMap();
+	
+	public static void add(Player player, int x, int y) {
+		try {
+			owned_x.containsKey(player);
+			owned_x.containsKey(player);
+		} catch (NullPointerException e) {
+            agarPlayer.x.put(online.getPlayer(), online.getPlayer().getLocation().getBlockX());
+            agarPlayer.z.put(online.getPlayer(), online.getPlayer().getLocation().getBlockZ());
+        }
+	}
+	
+}

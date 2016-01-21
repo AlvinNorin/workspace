@@ -1,0 +1,41 @@
+package io.github.alvinnorin.agar;
+
+import java.awt.image.BufferedImage;
+import java.util.HashMap;
+import java.util.concurrent.ThreadLocalRandom;
+
+import org.bukkit.Bukkit;
+import org.bukkit.entity.Player;
+import org.bukkit.plugin.Plugin;
+
+public class food {
+
+	static HashMap<Integer, Integer> free = new HashMap(); //list:id of eaten food
+	static HashMap<Integer, Integer> x = new HashMap(); //id of food:x cordinates of given food
+	static HashMap<Integer, Integer> z = new HashMap(); //id of food:z cordinates of given food
+	static HashMap<Integer, Integer> c = new HashMap(); //id of food:color of given food
+	
+	public static void spawn() {
+		//for (int count )
+		//if (x.containsKey(key))
+		int newX = ThreadLocalRandom.current().nextInt(0, 256 + 1);
+		int newZ = ThreadLocalRandom.current().nextInt(0, 256 + 1);
+		if (!x.containsValue(newX) && z.containsValue(newZ)) {
+			x.put(x.size(), newX);
+			z.put(z.size(), newZ);
+		}
+	}
+	
+	public static boolean isMaintaining = false;
+    public static void maintain(final Plugin plugin) {
+    	if (!isMaintaining)
+    	plugin.getServer().getScheduler().scheduleAsyncRepeatingTask((Plugin)command.plugin, new Runnable(){
+
+            public void run() {
+            	isMaintaining = true;
+            	for (Player online : Bukkit.getOnlinePlayers()) {
+            }
+        }, 0, 2);
+    }
+    
+}

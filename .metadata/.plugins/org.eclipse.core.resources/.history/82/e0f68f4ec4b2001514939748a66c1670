@@ -1,0 +1,10 @@
+package io.github.alvinnorin.agar;
+
+import java.util.HashMap;
+
+public class matrix {
+
+	static HashMap<Integer, Integer> owned_x = new HashMap();
+	static HashMap<Integer, Integer> owned_z = new HashMap();
+	
+}

@@ -1,0 +1,78 @@
+package io.github.alvinnorin.agar;
+
+import io.github.alvinnorin.agar.SampleBlockListener;
+import io.github.alvinnorin.agar.SampleDebugCommand;
+import io.github.alvinnorin.agar.SamplePlayerListener;
+import io.github.alvinnorin.agar.SamplePosCommand;
+import io.github.alvinnorin.agar.command;
+import io.github.alvinnorin.agar.schedule;
+import java.util.HashMap;
+import java.util.logging.Logger;
+
+import org.bukkit.Bukkit;
+import org.bukkit.Location;
+import org.bukkit.Server;
+import org.bukkit.command.CommandExecutor;
+import org.bukkit.command.PluginCommand;
+import org.bukkit.entity.Player;
+import org.bukkit.event.Listener;
+import org.bukkit.plugin.Plugin;
+import org.bukkit.plugin.PluginDescriptionFile;
+import org.bukkit.plugin.PluginManager;
+import org.bukkit.plugin.java.JavaPlugin;
+
+public class agar
+extends JavaPlugin {
+    private final SamplePlayerListener playerListener;
+    private final SampleBlockListener blockListener;
+    private final command commandListener;
+    private final HashMap<Player, Boolean> debugees;
+
+    public agar() {
+        this.playerListener = new SamplePlayerListener(this);
+        this.blockListener = new SampleBlockListener();
+        this.commandListener = new command(this);
+        this.debugees = new HashMap();
+    }
+
+    public void onDisable() {
+        this.getLogger().info("Goodbye world!");
+    }
+
+    public void onEnable() {
+        PluginManager pm = this.getServer().getPluginManager();
+        pm.registerEvents((Listener)this.playerListener, (Plugin)this);
+        pm.registerEvents((Listener)this.blockListener, (Plugin)this);
+        pm.registerEvents((Listener)this.commandListener, (Plugin)this);
+        this.getCommand("pos").setExecutor((CommandExecutor)new SamplePosCommand());
+        this.getCommand("debug").setExecutor((CommandExecutor)new SampleDebugCommand(this));
+        this.getCommand("deb").setExecutor((CommandExecutor)new command(this));
+        PluginDescriptionFile pdfFile = this.getDescription();
+        this.getLogger().info(pdfFile.getName() + " version " + pdfFile.getVersion() + " is enabled!");
+        schedule.enable((Plugin)command.plugin);
+        command.enable();
+    }
+
+    public void onLoad() {
+        	int foodX = -1222;
+        	int foodZ = -3192;
+        	for (int a = 0; a != foodX-256; a--) {
+        		/*for (int b = 0; a != foodZ-256; a--) {
+		        	for (Player online : Bukkit.getOnlinePlayers()) {
+		        		online.getPlayer().sendBlockChange(new Location(command.plugin.getServer().getWorld("world"), (double)(a), 4.0, (double)(b)), 0, (byte) 0);
+		        	}
+        		}*/
+        }
+    }
+
+    public boolean isDebugging(Player player) {
+        if (this.debugees.containsKey((Object)player)) {
+            return this.debugees.get((Object)player);
+        }
+        return false;
+    }
+
+    public void setDebugging(Player player, boolean value) {
+        this.debugees.put(player, value);
+    }
+}

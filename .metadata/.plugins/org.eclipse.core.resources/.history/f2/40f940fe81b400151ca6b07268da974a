@@ -1,0 +1,61 @@
+package io.github.alvinnorin.agar;
+
+import java.awt.image.BufferedImage;
+import java.util.HashMap;
+import java.util.concurrent.ThreadLocalRandom;
+
+import org.bukkit.Bukkit;
+import org.bukkit.Location;
+import org.bukkit.entity.Player;
+import org.bukkit.plugin.Plugin;
+
+public class food {
+
+	static HashMap<Integer, Integer> free = new HashMap(); //list:id of eaten food
+	static HashMap<Integer, Integer> x = new HashMap(); //id of food:x cordinates of given food
+	static HashMap<Integer, Integer> z = new HashMap(); //id of food:z cordinates of given food
+	static HashMap<Integer, Integer> c = new HashMap(); //id of food:color of given food
+	static int amount = 0;
+	
+	public static void spawn() {
+		//for (int count )
+		//if (x.containsKey(key))
+		int newX = ThreadLocalRandom.current().nextInt(0, 256 + 1);
+		int newZ = ThreadLocalRandom.current().nextInt(0, 256 + 1);
+		int newC = ThreadLocalRandom.current().nextInt(0, 15 + 1);
+		if (!x.containsValue(newX) && z.containsValue(newZ)) {
+			x.put(x.size(), newX);
+			z.put(z.size(), newZ);
+			c.put(c.size(), newC);
+			amount ++;
+		}
+	}
+	
+	public static boolean isMaintaining = false;
+    @SuppressWarnings("deprecation")
+	public static void maintain(final Plugin plugin) {
+    	if (!isMaintaining)
+    	plugin.getServer().getScheduler().scheduleAsyncRepeatingTask((Plugin)command.plugin, new Runnable(){
+
+            public void run() {
+            	//command.plugin.getLogger().info("food");
+            	isMaintaining = true;
+            	spawn();
+            	for (int count=0; count!=amount; count ++) {
+            		command.plugin.getLogger().info("1food");
+                	int foodX = -1222;
+                	int foodZ = -3192;
+                	int foodC = 0;
+            		foodX += x.get(count);
+            		foodZ += z.get(count);
+            		foodC = c.get(count);
+                	for (Player online : Bukkit.getOnlinePlayers()) {
+                		online.getPlayer().sendBlockChange(new Location(command.plugin.getServer().getWorld("world"), (double)(foodX), 4.0, (double)(foodZ)), 171, (byte) foodC);
+                		online.getPlayer().sendMessage(foodX+" "+foodZ+" "+foodC);
+                	}
+            	}
+            }
+        }, 0, 2);
+    }
+    
+}

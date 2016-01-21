@@ -1,0 +1,70 @@
+package io.github.alvinnorin.agar;
+
+import java.awt.image.BufferedImage;
+import java.util.HashMap;
+import java.util.concurrent.ThreadLocalRandom;
+
+import org.bukkit.Bukkit;
+import org.bukkit.entity.Player;
+import org.bukkit.plugin.Plugin;
+
+public class food {
+
+	static HashMap<Integer, Integer> free = new HashMap(); //list:id of eaten food
+	static HashMap<Integer, Integer> x = new HashMap(); //id of food:x cordinates of given food
+	static HashMap<Integer, Integer> z = new HashMap(); //id of food:z cordinates of given food
+	static HashMap<Integer, Integer> c = new HashMap(); //id of food:color of given food
+	
+	public static void spawn() {
+		//for (int count )
+		//if (x.containsKey(key))
+		int newX = ThreadLocalRandom.current().nextInt(0, 256 + 1);
+		int newZ = ThreadLocalRandom.current().nextInt(0, 256 + 1);
+		if (!x.containsValue(newX) && z.containsValue(newZ)) {
+			x.put(x.size(), newX);
+			z.put(z.size(), newZ);
+		}
+	}
+	
+	public static boolean isMaintaining = false;
+    public static void maintain(final Plugin plugin) {
+    	if (!isMaintaining)
+    	plugin.getServer().getScheduler().scheduleAsyncRepeatingTask((Plugin)command.plugin, new Runnable(){
+
+            public void run() {
+            	isMaintaining = true;
+            	boolean wasMovement = false;
+            	for (Player online : Bukkit.getOnlinePlayers()) {
+            		try {
+		        		if (online.getPlayer().getLocation().getBlockX() != agarPlayer.x.get(online.getPlayer())
+		    	    			|| online.getPlayer().getLocation().getBlockZ() != agarPlayer.z.get(online.getPlayer())) {
+		        			wasMovement = true;
+		        		}
+            		} catch (NullPointerException e) {
+        	            agarPlayer.x.put(online.getPlayer(), online.getPlayer().getLocation().getBlockX());
+        	            agarPlayer.z.put(online.getPlayer(), online.getPlayer().getLocation().getBlockZ());
+        	        }
+            	}
+            	if (wasMovement)
+            	for (Player online : Bukkit.getOnlinePlayers()) {
+        	        try {
+        	        	
+        	            int x = agarPlayer.x.get((Object)online.getPlayer());
+        	            int z = agarPlayer.z.get((Object)online.getPlayer());
+        	            int[] pos = new int[]{x, 4, z};
+        	            int[] nev = new int[]{online.getPlayer().getLocation().getBlockX()-4, 4,online.getPlayer().getLocation().getBlockZ()-4};
+        	            agarPlayer.clean(online.getPlayer(), pos, nev);
+        	            //agarPlayer.x.put(event.getPlayer(), event.getPlayer().getLocation().getBlockX());
+        	            //agarPlayer.z.put(event.getPlayer(), event.getPlayer().getLocation().getBlockZ());
+        	        }
+        	        catch (NullPointerException e) {
+        	            agarPlayer.x.put(online.getPlayer(), online.getPlayer().getLocation().getBlockX());
+        	            agarPlayer.z.put(online.getPlayer(), online.getPlayer().getLocation().getBlockZ());
+        	        }
+        	        //int[] pos = new int[]{event.getPlayer().getLocation().getBlockX(), 4, event.getPlayer().getLocation().getBlockZ()};
+            	}
+            }
+        }, 0, 2);
+    }
+	
+}

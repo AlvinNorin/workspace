@@ -1,0 +1,25 @@
+package io.github.alvinnorin.agar;
+
+import java.awt.image.BufferedImage;
+import java.util.HashMap;
+import java.util.concurrent.ThreadLocalRandom;
+
+import org.bukkit.entity.Player;
+
+public class food {
+
+	static HashMap<Integer, Integer> free = new HashMap(); //list:id of eaten food
+	static HashMap<Integer, Integer> x = new HashMap(); //id of food:x cordinates of given food
+	static HashMap<Integer, Integer> z = new HashMap(); //id of food:z cordinates of given food
+	static HashMap<Integer, Integer> c = new HashMap(); //id of food:color of given food
+	
+	public static void spawn() {
+		//for (int count )
+		//if (x.containsKey(key))
+		int newX = ThreadLocalRandom.current().nextInt(0, 256 + 1);
+		if (x.containsValue(newX) {
+			
+		}
+	}
+	
+}

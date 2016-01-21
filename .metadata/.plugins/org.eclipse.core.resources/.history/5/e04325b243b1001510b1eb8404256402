@@ -1,0 +1,5 @@
+package io.github.alvinnorin.agar;
+
+public class SampleDebugCommand {
+
+}

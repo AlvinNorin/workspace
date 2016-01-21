@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<qualifiedTypeNameHistroy>
+<fullyQualifiedTypeName name="com.comphenix.protocol.ProtocolLibrary"/>
+<fullyQualifiedTypeName name="com.comphenix.protocol.events.PacketAdapter"/>
+<fullyQualifiedTypeName name="com.comphenix.protocol.events.PacketEvent"/>
+<fullyQualifiedTypeName name="com.comphenix.protocol.events.ListenerPriority"/>
+<fullyQualifiedTypeName name="org.bukkit.entity.Ageable"/>
+<fullyQualifiedTypeName name="org.bukkit.entity.PigZombie"/>
+<fullyQualifiedTypeName name="org.bukkit.entity.Player"/>
+<fullyQualifiedTypeName name="org.bukkit.Location"/>
+<fullyQualifiedTypeName name="org.bukkit.Color"/>
+<fullyQualifiedTypeName name="java.net.URL"/>
+<fullyQualifiedTypeName name="java.awt.List"/>
+<fullyQualifiedTypeName name="java.util.List"/>
+<fullyQualifiedTypeName name="java.util.HashMap"/>
+<fullyQualifiedTypeName name="java.awt.Color"/>
+</qualifiedTypeNameHistroy>

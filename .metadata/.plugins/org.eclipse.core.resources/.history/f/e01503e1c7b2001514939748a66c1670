@@ -1,0 +1,40 @@
+package io.github.alvinnorin.agar;
+
+import java.util.HashMap;
+
+import org.bukkit.entity.Player;
+
+public class matrix {
+
+	static HashMap<Player, Integer> owned_x = new HashMap();
+	static HashMap<Player, Integer> owned_z = new HashMap();
+	static HashMap<Player, Integer> owned_mass = new HashMap();
+	static HashMap<Player, Boolean> claim_done = new HashMap();
+	static HashMap<Player, String> owned = new HashMap();
+	
+	public static void claim(Player player, int x, int y) {
+		try {
+			owned_x.containsKey(player);
+			owned_z.containsKey(player);
+			owned_mass.containsKey(player);
+		} catch (NullPointerException e) {
+			owned_x.put(player, 0);
+			owned_z.put(player, 0);
+			owned_mass.put(player, 0);
+        }
+		owned_x.put(player, 1);
+		owned_x.put(player, 0);
+		owned_x.put(player, 2);
+		owned_x.put(player, 4);
+		player.sendMessage(owned_x.get(player)+'');
+	}
+	
+	public static void put(Player player, int x, int z) {
+		//owned.put(player, )
+	}
+	
+	public static void done(Player player) {
+		owned_x.forEach(action);
+	}
+	
+}

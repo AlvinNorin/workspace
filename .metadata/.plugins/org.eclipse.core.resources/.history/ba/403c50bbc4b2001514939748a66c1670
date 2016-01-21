@@ -1,0 +1,17 @@
+package io.github.alvinnorin.agar;
+
+import java.util.HashMap;
+
+import org.bukkit.entity.Player;
+
+public class matrix {
+
+	static HashMap<Player, Integer> owned_x = new HashMap();
+	static HashMap<Player, Integer> owned_z = new HashMap();
+	static HashMap<Player, Integer> owned = new HashMap();
+	
+	public static void add(Player player, int x, int y) {
+		if (owned_x ==)
+	}
+	
+}

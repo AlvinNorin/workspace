@@ -1,0 +1,408 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<workbench progressCount="24" version="2.0">
+<workbenchAdvisor/>
+<window height="766" maximized="true" width="1020" x="0" y="768">
+<fastViewData fastViewLocation="1024"/>
+<perspectiveBar>
+<itemSize x="160"/>
+</perspectiveBar>
+<coolbarLayout>
+<coolItem id="group.file" itemType="typeGroupMarker"/>
+<coolItem id="org.eclipse.ui.workbench.file" itemType="typeToolBarContribution" x="132" y="26"/>
+<coolItem id="additions" itemType="typeGroupMarker"/>
+<coolItem id="org.eclipse.debug.ui.launchActionSet" itemType="typeToolBarContribution" x="142" y="26"/>
+<coolItem id="org.eclipse.jdt.ui.CompilationUnitEditor" itemType="typeToolBarContribution" x="-1" y="-1"/>
+<coolItem id="org.eclipse.search.searchActionSet" itemType="typeToolBarContribution" x="80" y="26"/>
+<coolItem id="org.eclipse.ui.DefaultTextEditor" itemType="typeToolBarContribution" x="-1" y="-1"/>
+<coolItem id="org.eclipse.ui.edit.text.actionSet.presentation" itemType="typeToolBarContribution" x="114" y="26"/>
+<coolItem id="org.eclipse.wst.xml.ui.perspective.NewFileToolBar" itemType="typeToolBarContribution" x="-1" y="-1"/>
+<coolItem id="org.eclipse.wst.xml.ui.design.DesignToolBar" itemType="typeToolBarContribution" x="-1" y="-1"/>
+<coolItem id="org.eclipse.debug.ui.launch.toolbar" itemType="typeToolBarContribution" x="-1" y="-1"/>
+<coolItem id="org.eclipse.debug.ui.main.toolbar" itemType="typeToolBarContribution" x="-1" y="-1"/>
+<coolItem id="group.nav" itemType="typeGroupMarker"/>
+<coolItem id="org.eclipse.ui.workbench.navigate" itemType="typeToolBarContribution" x="212" y="26"/>
+<coolItem id="group.editor" itemType="typeGroupMarker"/>
+<coolItem id="org.eclipse.jdt.ui.ClassFileEditorNoSource" itemType="typePlaceholder" x="-1" y="-1"/>
+<coolItem id="group.help" itemType="typeGroupMarker"/>
+<coolItem id="org.eclipse.ui.workbench.help" itemType="typeToolBarContribution" x="-1" y="-1"/>
+</coolbarLayout>
+<page aggregateWorkingSetId="Aggregate for window 1449938837256" focus="true" label="Workspace - Resource">
+<editors>
+<editorArea activeWorkbook="DefaultEditorWorkbook">
+<info part="DefaultEditorWorkbook">
+<folder appearance="1" expanded="2">
+<presentation id="org.eclipse.ui.presentations.WorkbenchPresentationFactory">
+<part id="2"/>
+<part id="0"/>
+<part id="1"/>
+<part id="3"/>
+<part id="4"/>
+<part id="5"/>
+</presentation>
+</folder>
+</info>
+</editorArea>
+<editor id="org.eclipse.jdt.ui.CompilationUnitEditor" name="biteconomy.java" partName="biteconomy.java" path="/home/alvin/workspace/agar/src/main/java/io/github/alvinnorin/biteconomy/biteconomy.java" title="biteconomy.java" tooltip="agar/src/main/java/io/github/alvinnorin/biteconomy/biteconomy.java" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/agar/src/main/java/io/github/alvinnorin/biteconomy/biteconomy.java"/>
+<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="583" selectionTopPixel="721"/>
+</editor>
+<editor id="org.eclipse.ui.DefaultTextEditor" name="pom.xml" partName="pom.xml" path="/home/alvin/workspace/agar/pom.xml" title="pom.xml" tooltip="agar/pom.xml" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/agar/pom.xml"/>
+<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="1478" selectionTopPixel="517"/>
+</editor>
+<editor id="org.eclipse.jdt.ui.CompilationUnitEditor" name="btc.java" partName="btc.java" path="/home/alvin/workspace/agar/src/main/java/io/github/alvinnorin/biteconomy/btc.java" title="btc.java" tooltip="agar/src/main/java/io/github/alvinnorin/biteconomy/btc.java" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/agar/src/main/java/io/github/alvinnorin/biteconomy/btc.java"/>
+<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="3617" selectionTopPixel="3288"/>
+</editor>
+<editor activePart="true" focus="true" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="agarPlayer.java" partName="agarPlayer.java" path="/home/alvin/workspace/agar/src/main/java/io/github/alvinnorin/biteconomy/agarPlayer.java" title="agarPlayer.java" tooltip="agar/src/main/java/io/github/alvinnorin/biteconomy/agarPlayer.java" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/agar/src/main/java/io/github/alvinnorin/biteconomy/agarPlayer.java"/>
+<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="3845" selectionTopPixel="1592"/>
+</editor>
+<editor id="org.eclipse.jdt.ui.CompilationUnitEditor" name="schedule.java" partName="schedule.java" path="/home/alvin/workspace/agar/src/main/java/io/github/alvinnorin/biteconomy/schedule.java" title="schedule.java" tooltip="agar/src/main/java/io/github/alvinnorin/biteconomy/schedule.java" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/agar/src/main/java/io/github/alvinnorin/biteconomy/schedule.java"/>
+<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="1606" selectionTopPixel="857"/>
+</editor>
+<editor id="org.eclipse.jdt.ui.CompilationUnitEditor" name="sign.java" partName="sign.java" path="/home/alvin/workspace/agar/src/main/java/io/github/alvinnorin/biteconomy/sign.java" title="sign.java" tooltip="agar/src/main/java/io/github/alvinnorin/biteconomy/sign.java" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/agar/src/main/java/io/github/alvinnorin/biteconomy/sign.java"/>
+<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="0" selectionTopPixel="0"/>
+</editor>
+</editors>
+<views>
+<view id="org.eclipse.ui.navigator.ProjectExplorer" partName="Project Explorer">
+<viewState CommonNavigator.LINKING_ENABLED="0" org.eclipse.ui.navigator.resources.workingSets.showTopLevelWorkingSets="0"/>
+</view>
+<view id="org.eclipse.ui.console.ConsoleView" partName="Console">
+<viewState/>
+</view>
+<view id="org.eclipse.ui.views.TaskList" partName="Tasks">
+<viewState PRIMARY_SORT_FIELD="org.eclipse.ui.ide.completionField" categoryGroup="none" markerContentGenerator="org.eclipse.ui.ide.tasksGenerator" partName="Tasks">
+<columnWidths org.eclipse.ui.ide.completionField="40" org.eclipse.ui.ide.descriptionField="300" org.eclipse.ui.ide.locationField="90" org.eclipse.ui.ide.markerType="411" org.eclipse.ui.ide.pathField="120" org.eclipse.ui.ide.priorityField="30" org.eclipse.ui.ide.resourceField="90"/>
+<visible IMemento.internal.id="org.eclipse.ui.ide.completionField"/>
+<visible IMemento.internal.id="org.eclipse.ui.ide.priorityField"/>
+<visible IMemento.internal.id="org.eclipse.ui.ide.descriptionField"/>
+<visible IMemento.internal.id="org.eclipse.ui.ide.resourceField"/>
+<visible IMemento.internal.id="org.eclipse.ui.ide.pathField"/>
+<visible IMemento.internal.id="org.eclipse.ui.ide.locationField"/>
+<visible IMemento.internal.id="org.eclipse.ui.ide.markerType"/>
+</viewState>
+</view>
+<view id="org.eclipse.ui.views.ContentOutline" partName="Outline">
+<viewState/>
+</view>
+</views>
+<perspectives activePart="org.eclipse.jdt.ui.CompilationUnitEditor" activePerspective="org.eclipse.ui.resourcePerspective">
+<perspective editorAreaTrimState="2" editorAreaVisible="1" fixed="0" version="0.016">
+<descriptor class="org.eclipse.ui.internal.ide.application.ResourcePerspective" id="org.eclipse.ui.resourcePerspective" label="Resource"/>
+<alwaysOnActionSet id="org.eclipse.ui.cheatsheets.actionSet"/>
+<alwaysOnActionSet id="org.eclipse.search.searchActionSet"/>
+<alwaysOnActionSet id="org.eclipse.ui.edit.text.actionSet.annotationNavigation"/>
+<alwaysOnActionSet id="org.eclipse.ui.edit.text.actionSet.navigation"/>
+<alwaysOnActionSet id="org.eclipse.ui.edit.text.actionSet.convertLineDelimitersTo"/>
+<alwaysOnActionSet id="org.eclipse.ui.externaltools.ExternalToolsSet"/>
+<alwaysOnActionSet id="org.eclipse.ui.actionSet.keyBindings"/>
+<alwaysOnActionSet id="org.eclipse.ui.actionSet.openFiles"/>
+<alwaysOnActionSet id="org.eclipse.ui.NavigateActionSet"/>
+<show_view_action id="org.eclipse.ui.navigator.ProjectExplorer"/>
+<show_view_action id="org.eclipse.ui.views.BookmarkView"/>
+<show_view_action id="org.eclipse.ui.views.ContentOutline"/>
+<show_view_action id="org.eclipse.ui.views.PropertySheet"/>
+<show_view_action id="org.eclipse.ui.views.ProblemView"/>
+<show_view_action id="org.eclipse.ui.views.ProgressView"/>
+<show_view_action id="org.eclipse.ui.views.TaskList"/>
+<show_view_action id="org.eclipse.ant.ui.views.AntView"/>
+<show_view_action id="org.eclipse.pde.runtime.LogView"/>
+<new_wizard_action id="org.eclipse.ui.wizards.new.folder"/>
+<new_wizard_action id="org.eclipse.ui.wizards.new.file"/>
+<new_wizard_action id="org.eclipse.ui.editors.wizards.UntitledTextFileWizard"/>
+<perspective_action id="org.eclipse.jdt.ui.JavaPerspective"/>
+<perspective_action id="org.eclipse.jdt.ui.JavaBrowsingPerspective"/>
+<perspective_action id="org.eclipse.team.cvs.ui.cvsPerspective"/>
+<perspective_action id="org.eclipse.team.ui.TeamSynchronizingPerspective"/>
+<hide_toolbar_item_id id="org.eclipse.debug.ui.commands.RunToLine"/>
+<hide_toolbar_item_id id="org.eclipse.jdt.ui.actions.OpenProjectWizard"/>
+<hide_toolbar_item_id id="org.eclipse.ui.edit.text.toggleShowSelectedElementOnly"/>
+<view id="org.eclipse.ui.navigator.ProjectExplorer"/>
+<view id="org.eclipse.ui.views.ContentOutline"/>
+<view id="org.eclipse.ui.views.TaskList"/>
+<view id="org.eclipse.ui.console.ConsoleView"/>
+<fastViewBars/>
+<layout>
+<mainWindow>
+<info folder="true" part="topLeft">
+<folder activePageID="org.eclipse.ui.navigator.ProjectExplorer" appearance="2" expanded="2">
+<page content="org.eclipse.ui.navigator.ProjectExplorer" label="Project Explorer"/>
+<page content="org.eclipse.ui.views.BookmarkView" label="LabelNotFound"/>
+<page content="org.eclipse.ui.views.ResourceNavigator" label="LabelNotFound"/>
+<page content="org.eclipse.team.ccvs.ui.RepositoriesView" label="LabelNotFound"/>
+<presentation id="org.eclipse.ui.presentations.WorkbenchPresentationFactory">
+<part id="0"/>
+</presentation>
+</folder>
+</info>
+<info folder="true" part="org.eclipse.ui.internal.ViewStack@5cf1f482" ratio="0.7495049" ratioLeft="757" ratioRight="253" relationship="2" relative="topLeft">
+<folder appearance="2" expanded="2">
+<page content="org.eclipse.help.ui.HelpView" label="LabelNotFound"/>
+<page content="org.eclipse.ui.internal.introview" label="LabelNotFound"/>
+<page content="org.eclipse.ui.cheatsheets.views.CheatSheetView" label="LabelNotFound"/>
+<presentation id="org.eclipse.ui.presentations.WorkbenchPresentationFactory"/>
+</folder>
+</info>
+<info part="org.eclipse.ui.editorss" ratio="0.25940594" ratioLeft="262" ratioRight="748" relationship="2" relative="topLeft"/>
+<info folder="true" part="bottomRight" ratio="0.66" ratioLeft="429" ratioRight="221" relationship="4" relative="org.eclipse.ui.editorss">
+<folder activePageID="org.eclipse.ui.console.ConsoleView" appearance="2" expanded="2">
+<page content="org.eclipse.ui.views.TaskList" label="Tasks"/>
+<page content="org.eclipse.ui.console.ConsoleView" label="Console"/>
+<page content="org.eclipse.team.ui.GenericHistoryView" label="LabelNotFound"/>
+<page content="org.eclipse.pde.runtime.LogView" label="LabelNotFound"/>
+<presentation id="org.eclipse.ui.presentations.WorkbenchPresentationFactory">
+<part id="0"/>
+<part id="1"/>
+</presentation>
+</folder>
+</info>
+<info folder="true" part="bottomLeft" ratio="0.5" ratioLeft="325" ratioRight="325" relationship="4" relative="topLeft">
+<folder activePageID="org.eclipse.ui.views.ContentOutline" appearance="2" expanded="2">
+<page content="org.eclipse.ui.views.ContentOutline" label="Outline"/>
+<page content="org.eclipse.ant.ui.views.AntView" label="LabelNotFound"/>
+<presentation id="org.eclipse.ui.presentations.WorkbenchPresentationFactory">
+<part id="0"/>
+</presentation>
+</folder>
+</info>
+</mainWindow>
+</layout>
+</perspective>
+</perspectives>
+<workingSets/>
+<navigationHistory>
+<editors>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.ui.DefaultTextEditor" path="/agar/pom.xml"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/agar/src/main/java/io/github/alvinnorin/biteconomy/biteconomy.java"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/agar/src/main/java/io/github/alvinnorin/biteconomy/btc.java"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/agar/src/main/java/io/github/alvinnorin/biteconomy/agarPlayer.java"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/agar/src/main/java/io/github/alvinnorin/biteconomy/schedule.java"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/agar/src/main/java/io/github/alvinnorin/biteconomy/sign.java"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/agar/src/main/java/io/github/alvinnorin/biteconomy/SamplePosCommand.java"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/agar/src/main/java/io/github/alvinnorin/biteconomy/SamplePlayerListener.java"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/agar/src/main/java/io/github/alvinnorin/biteconomy/SampleDebugCommand.java"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/agar/src/main/java/io/github/alvinnorin/biteconomy/SampleBlockListener.java"/>
+</editors>
+<item historyLabel="agarPlayer.java" index="3">
+<position info="not_deleted" x="1895" y="0"/>
+</item>
+<item historyLabel="agarPlayer.java" index="3">
+<position info="not_deleted" x="1605" y="4"/>
+</item>
+<item historyLabel="btc.java" index="2">
+<position info="not_deleted" x="2938" y="0"/>
+</item>
+<item historyLabel="agarPlayer.java" index="3">
+<position info="not_deleted" x="1605" y="4"/>
+</item>
+<item historyLabel="agarPlayer.java" index="3">
+<position info="not_deleted" x="670" y="0"/>
+</item>
+<item historyLabel="btc.java" index="2">
+<position info="not_deleted" x="2938" y="0"/>
+</item>
+<item historyLabel="btc.java" index="2">
+<position info="not_deleted" x="3121" y="18"/>
+</item>
+<item historyLabel="btc.java" index="2">
+<position info="not_deleted" x="3272" y="0"/>
+</item>
+<item historyLabel="agarPlayer.java" index="3">
+<position info="not_deleted" x="602" y="1"/>
+</item>
+<item historyLabel="btc.java" index="2">
+<position info="not_deleted" x="3406" y="0"/>
+</item>
+<item historyLabel="biteconomy.java" index="1">
+<position info="not_deleted" x="583" y="0"/>
+</item>
+<item historyLabel="agarPlayer.java" index="3">
+<position info="not_deleted" x="602" y="1"/>
+</item>
+<item historyLabel="agarPlayer.java" index="3">
+<position info="not_deleted" x="2078" y="0"/>
+</item>
+<item historyLabel="biteconomy.java" index="1">
+<position info="not_deleted" x="583" y="0"/>
+</item>
+<item historyLabel="btc.java" index="2">
+<position info="not_deleted" x="3406" y="0"/>
+</item>
+<item historyLabel="biteconomy.java" index="1">
+<position info="not_deleted" x="583" y="0"/>
+</item>
+<item historyLabel="pom.xml" index="0">
+<position info="not_deleted" x="1478" y="0"/>
+</item>
+<item historyLabel="agarPlayer.java" index="3">
+<position info="not_deleted" x="2913" y="0"/>
+</item>
+<item historyLabel="biteconomy.java" index="1">
+<position info="not_deleted" x="583" y="0"/>
+</item>
+<item historyLabel="btc.java" index="2">
+<position info="not_deleted" x="3098" y="0"/>
+</item>
+<item historyLabel="agarPlayer.java" index="3">
+<position/>
+</item>
+<item historyLabel="btc.java" index="2">
+<position info="not_deleted" x="3617" y="0"/>
+</item>
+<item historyLabel="agarPlayer.java" index="3">
+<position/>
+</item>
+<item historyLabel="agarPlayer.java" index="3">
+<position info="not_deleted" x="2913" y="0"/>
+</item>
+<item historyLabel="agarPlayer.java" index="3">
+<position info="not_deleted" x="6138" y="0"/>
+</item>
+<item historyLabel="btc.java" index="2">
+<position info="not_deleted" x="3617" y="0"/>
+</item>
+<item historyLabel="agarPlayer.java" index="3">
+<position info="not_deleted" x="6138" y="0"/>
+</item>
+<item historyLabel="agarPlayer.java" index="3">
+<position info="not_deleted" x="1833" y="5"/>
+</item>
+<item historyLabel="agarPlayer.java" index="3">
+<position/>
+</item>
+<item historyLabel="agarPlayer.java" index="3">
+<position info="not_deleted" x="1833" y="5"/>
+</item>
+<item historyLabel="agarPlayer.java" index="3">
+<position info="not_deleted" x="2029" y="0"/>
+</item>
+<item historyLabel="agarPlayer.java" index="3">
+<position info="not_deleted" x="5451" y="5"/>
+</item>
+<item historyLabel="agarPlayer.java" index="3">
+<position info="not_deleted" x="6161" y="0"/>
+</item>
+<item historyLabel="agarPlayer.java" index="3">
+<position info="not_deleted" x="2476" y="0"/>
+</item>
+<item historyLabel="schedule.java" index="4">
+<position info="not_deleted" x="1606" y="0"/>
+</item>
+<item historyLabel="agarPlayer.java" index="3">
+<position info="not_deleted" x="2476" y="0"/>
+</item>
+<item historyLabel="pom.xml" index="0">
+<position info="not_deleted" x="1478" y="0"/>
+</item>
+<item historyLabel="biteconomy.java" index="1">
+<position info="not_deleted" x="583" y="0"/>
+</item>
+<item historyLabel="btc.java" index="2">
+<position info="not_deleted" x="3617" y="0"/>
+</item>
+<item historyLabel="sign.java" index="5">
+<position info="not_deleted" x="0" y="0"/>
+</item>
+<item historyLabel="SamplePosCommand.java" index="6">
+<position info="not_deleted" x="0" y="0"/>
+</item>
+<item historyLabel="sign.java" index="5">
+<position info="not_deleted" x="0" y="0"/>
+</item>
+<item historyLabel="SamplePlayerListener.java" index="7">
+<position info="not_deleted" x="0" y="0"/>
+</item>
+<item historyLabel="sign.java" index="5">
+<position info="not_deleted" x="0" y="0"/>
+</item>
+<item historyLabel="SampleDebugCommand.java" index="8">
+<position info="not_deleted" x="0" y="0"/>
+</item>
+<item historyLabel="sign.java" index="5">
+<position info="not_deleted" x="0" y="0"/>
+</item>
+<item historyLabel="SampleBlockListener.java" index="9">
+<position info="not_deleted" x="0" y="0"/>
+</item>
+<item historyLabel="sign.java" index="5">
+<position info="not_deleted" x="0" y="0"/>
+</item>
+<item historyLabel="btc.java" index="2">
+<position info="not_deleted" x="3617" y="0"/>
+</item>
+<item active="true" historyLabel="agarPlayer.java" index="3">
+<position info="not_deleted" x="2476" y="0"/>
+</item>
+</navigationHistory>
+<input factoryID="org.eclipse.ui.internal.model.ResourceFactory" path="/" type="8"/>
+</page>
+<workbenchWindowAdvisor/>
+<actionBarAdvisor/>
+<trimLayout>
+<trimArea IMemento.internal.id="16384">
+<trimItem IMemento.internal.id="topLeft"/>
+<trimItem IMemento.internal.id="bottomLeft"/>
+</trimArea>
+<trimArea IMemento.internal.id="128">
+<trimItem IMemento.internal.id="org.eclipse.ui.internal.WorkbenchWindow.topBar"/>
+</trimArea>
+<trimArea IMemento.internal.id="1024">
+<trimItem IMemento.internal.id="org.eclise.ui.internal.FastViewBar"/>
+<trimItem IMemento.internal.id="org.eclipse.jface.action.StatusLineManager"/>
+<trimItem IMemento.internal.id="org.eclipse.ui.internal.progress.ProgressRegion"/>
+<trimItem IMemento.internal.id="bottomRight"/>
+</trimArea>
+</trimLayout>
+</window>
+<mruList>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="SampleBlockListener.java" tooltip="agar/src/main/java/io/github/alvinnorin/biteconomy/SampleBlockListener.java">
+<persistable path="/agar/src/main/java/io/github/alvinnorin/biteconomy/SampleBlockListener.java"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="SampleDebugCommand.java" tooltip="agar/src/main/java/io/github/alvinnorin/biteconomy/SampleDebugCommand.java">
+<persistable path="/agar/src/main/java/io/github/alvinnorin/biteconomy/SampleDebugCommand.java"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="SamplePlayerListener.java" tooltip="agar/src/main/java/io/github/alvinnorin/biteconomy/SamplePlayerListener.java">
+<persistable path="/agar/src/main/java/io/github/alvinnorin/biteconomy/SamplePlayerListener.java"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="SamplePosCommand.java" tooltip="agar/src/main/java/io/github/alvinnorin/biteconomy/SamplePosCommand.java">
+<persistable path="/agar/src/main/java/io/github/alvinnorin/biteconomy/SamplePosCommand.java"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="sign.java" tooltip="agar/src/main/java/io/github/alvinnorin/biteconomy/sign.java">
+<persistable path="/agar/src/main/java/io/github/alvinnorin/biteconomy/sign.java"/>
+</file>
+<file factoryID="org.eclipse.jdt.ui.ClassFileEditorInputFactory" id="org.eclipse.jdt.ui.ClassFileEditorNoSource" name="JavaPlugin.class" tooltip="org.bukkit.plugin.java.JavaPlugin">
+<persistable org.eclipse.jdt.ui.ClassFileIdentifier="=agar/\/home\/alvin\/.m2\/repository\/org\/bukkit\/bukkit\/1.7.9-R0.2\/bukkit-1.7.9-R0.2.jar&lt;org.bukkit.plugin.java(JavaPlugin.class"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="schedule.java" tooltip="agar/src/main/java/io/github/alvinnorin/biteconomy/schedule.java">
+<persistable path="/agar/src/main/java/io/github/alvinnorin/biteconomy/schedule.java"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="agarPlayer.java" tooltip="agar/src/main/java/io/github/alvinnorin/biteconomy/agarPlayer.java">
+<persistable path="/agar/src/main/java/io/github/alvinnorin/biteconomy/agarPlayer.java"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.ui.systemExternalEditor" name="plugin.yml" tooltip="agar/src/main/resources/plugin.yml">
+<persistable path="/agar/src/main/resources/plugin.yml"/>
+</file>
+<file factoryID="org.eclipse.jdt.ui.ClassFileEditorInputFactory" id="org.eclipse.jdt.ui.ClassFileEditorNoSource" name="Integer.class" tooltip="java.lang.Integer">
+<persistable org.eclipse.jdt.ui.ClassFileIdentifier="=agar/\/usr\/lib\/jvm\/java-7-openjdk-amd64\/jre\/lib\/rt.jar&lt;java.lang(Integer.class"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="btc.java" tooltip="agar/src/main/java/io/github/alvinnorin/biteconomy/btc.java">
+<persistable path="/agar/src/main/java/io/github/alvinnorin/biteconomy/btc.java"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.ui.DefaultTextEditor" name="pom.xml" tooltip="agar/pom.xml">
+<persistable path="/agar/pom.xml"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.ui.DefaultTextEditor" name="pom.xml" tooltip="Copy of agar/pom.xml">
+<persistable path="/Copy of agar/pom.xml"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="SleepingAnimation.java" tooltip="agar/src/main/java/io/github/alvinnorin/biteconomy/SleepingAnimation.java">
+<persistable path="/agar/src/main/java/io/github/alvinnorin/biteconomy/SleepingAnimation.java"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="btc.java" tooltip="Copy of agar/src/main/java/io/github/alvinnorin/biteconomy/btc.java">
+<persistable path="/Copy of agar/src/main/java/io/github/alvinnorin/biteconomy/btc.java"/>
+</file>
+</mruList>
+</workbench>

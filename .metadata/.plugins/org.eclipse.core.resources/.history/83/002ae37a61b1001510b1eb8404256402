@@ -1,0 +1,284 @@
+package io.github.alvinnorin.agar;
+
+import io.github.alvinnorin.agar.agar;
+import io.github.alvinnorin.agar.command;
+import java.awt.Color;
+import java.awt.image.BufferedImage;
+import java.io.File;
+import java.io.IOException;
+import java.net.URL;
+import java.util.HashMap;
+import java.util.logging.Logger;
+import javax.imageio.ImageIO;
+import org.bukkit.DyeColor;
+import org.bukkit.Location;
+import org.bukkit.Material;
+import org.bukkit.Server;
+import org.bukkit.World;
+import org.bukkit.entity.Player;
+import org.bukkit.plugin.Plugin;
+import org.bukkit.scheduler.BukkitScheduler;
+import org.bukkit.scheduler.BukkitTask;
+
+public class agarPlayer {
+    static HashMap<Player, BufferedImage> agars = new HashMap();
+    static HashMap<Player, Integer> x = new HashMap();
+    static HashMap<Player, Integer> z = new HashMap();
+    static Material material = null;
+    static byte b = 0;
+    static BufferedImage Image1 = null;
+    private static int[] STONE = new int[]{145, 145, 145, 0, 1, 0};
+    private static int[] WOOL_GREY = new int[]{99, 99, 99, 1, 35, 7};
+    private static int[] WOOL_L_GREY = new int[]{145, 145, 145, 2, 35, 8};
+    private static int[] WOOL_BLACK = new int[]{0, 0, 0, 3, 35, 15};
+    private static int[] WOOL_ORANGE = new int[]{255, 128, 0, 4, 35, 1};
+    private static int[] WOOL_MAGENTA = new int[]{255, 0, 255, 5, 35, 2};
+    private static int[] WOOL_L_BLUE = new int[]{0, 155, 255, 6, 35, 3};
+    private static int[] WOOL_YELLOW = new int[]{175, 175, 0, 7, 35, 4};
+    private static int[] WOOL_LIME = new int[]{75, 255, 0, 8, 35, 5};
+    private static int[] WOOL_PINK = new int[]{255, 125, 180, 9, 35, 6};
+    private static int[] WOOL_CYAN = new int[]{0, 150, 255, 10, 35, 9};
+    private static int[] WOOL_PURPLE = new int[]{150, 0, 150, 11, 35, 10};
+    private static int[] WOOL_BLUE = new int[]{0, 0, 255, 12, 35, 11};
+    private static int[] WOOL_BROWN = new int[]{130, 75, 0, 13, 35, 12};
+    private static int[] WOOL_GREEN = new int[]{0, 255, 0, 14, 35, 13};
+    private static int[] WOOL_RED = new int[]{255, 0, 0, 15, 35, 14};
+    private static int[] WOOL_WHITE = new int[]{180, 180, 180, 16, 35, 0};
+    private static int[] SANDSTONE = new int[]{255, 175, 135, 17, 24, 0};
+    private static int[] IRON = new int[]{215, 215, 215, 18, 42, 0};
+    private static int[] DIAMOND = new int[]{0, 255, 255, 19, 57, 0};
+    private static int[] GOLD = new int[]{255, 255, 0, 20, 41, 0};
+    private static int[] SNOW = new int[]{255, 255, 255, 21, 80, 0};
+    private static int[] GRAVEL = new int[]{140, 135, 155, 22, 13, 0};
+    private static int[] TWO_HALFSLABS = new int[]{159, 159, 159, 23, 43, 0};
+    private static int[] SNOW_BLOCK = new int[]{239, 251, 251, 24, 80, 0};
+    private static int[] NETHER_RACK = new int[]{110, 53, 51, 25, 87, 0};
+    private static int[] SOUL_SAND = new int[]{84, 64, 51, 26, 88, 0};
+    private static int[] OBSIDIAN = new int[]{20, 18, 29, 27, 49, 0};
+    public static int[][] materials = new int[][]{STONE, WOOL_GREY, WOOL_L_GREY, WOOL_BLACK, WOOL_ORANGE, WOOL_MAGENTA, WOOL_L_BLUE, WOOL_YELLOW, WOOL_LIME, WOOL_PINK, WOOL_CYAN, WOOL_PURPLE, WOOL_BLUE, WOOL_BROWN, WOOL_GREEN, WOOL_RED, WOOL_WHITE, SANDSTONE, IRON, DIAMOND, GOLD, SNOW, GRAVEL, TWO_HALFSLABS, SNOW_BLOCK, NETHER_RACK, SOUL_SAND, OBSIDIAN};
+
+    public static void fetchSkin(final Player player) {
+        command.plugin.getServer().getScheduler().runTaskAsynchronously((Plugin)command.plugin, new Runnable(){
+
+            public void run() {
+                try {
+                    URL url = player.getName().equalsIgnoreCase("steve") ? new URL("https://minecraft.net/images/char.png") : new URL("http://skins.minecraft.net/MinecraftSkins/" + player.getName() + ".png");
+                    agarPlayer.agars.put(player, ImageIO.read(url));
+                }
+                catch (IOException e) {
+                    command.plugin.getLogger().warning("Couldnt fetchss");
+                }
+                catch (NullPointerException e) {
+                    command.plugin.getLogger().warning("Couldnt fetch");
+                }
+            }
+        });
+    }
+
+    public static void draw(final Player player, final int[] pos) {
+        command.plugin.getServer().getScheduler().runTaskAsynchronously((Plugin)command.plugin, new Runnable(){
+
+            public void run() {
+                agarPlayer.spawn(player, 0, pos);
+            }
+        });
+    }
+
+    public static void clean(Player player, int[] pos, int[] nev) {
+    	/*for (int y = 0; y < 8; ++y) {
+            for (int x = 0; x < 8; ++x) {
+                agarPlayer.getSkin(player, x + 8, y + 8);
+                player.sendBlockChange(new Location(command.plugin.getServer().getWorld("world"), (double)(pos[0] + x), 4.0, (double)(pos[2] + y)), 0, (byte) 0);
+            }
+        }*/
+    	int x;
+        for (x = -1; x < 9; ++x) {
+            player.sendBlockChange(new Location(command.plugin.getServer().getWorld("world"), (double)(pos[0] + x), 4.0, (double)(player.getLocation().getBlockY() + 2)), 1, (byte) 0);
+        }
+        for (int y = -4; y < 4; ++y) {
+            for (int x2 = -1; x2 < 9; x2 += 9) {
+                agarPlayer.getSkin(player, x2 + 8, y + 8);
+                if (b != -1) {
+                    player.sendBlockChange(new Location(command.plugin.getServer().getWorld("world"), (double)(player.getLocation().getBlockX()-4 + x2), 4.0, (double)(player.getLocation().getBlockZ() + y)), 1, (byte) 0);
+                }
+                //player.sendMessage("" + agarPlayer.getSkin(player, x2 + 8, y + 8) + "");
+            }
+        }
+        for (x = 0; x < 9; ++x) {
+            for (int y2 = -1; y2 < 9; y2 += 9) {
+                agarPlayer.getSkin(player, x + 8, y2 + 8);
+                if (b != -1) {
+                    player.sendBlockChange(new Location(command.plugin.getServer().getWorld("world"), (double)(player.getLocation().getBlockX() + x), 4.0, (double)(player.getLocation().getBlockZ() + y2)), 1, (byte) 0);
+                }
+                //player.sendMessage("" + agarPlayer.getSkin(player, x + 8, y2 + 8) + "");
+            }
+        }
+        agarPlayer.spawn(player, 0, nev);
+    }
+
+    public static byte getSkin(Player player, int x, int y) {
+        File file = new File("./plugins/Niron.png");
+        BufferedImage image = null;
+        try {
+            image = ImageIO.read(file);
+        }
+        catch (IOException e) {
+            e.printStackTrace();
+        }
+        long clr = image.getRGB(x, y);
+        clr = - clr;
+        long red = ((clr += Long.parseLong("FF000000", 16)) & 0xFF0000) >> 16;
+        long green = (clr & 65280) >> 8;
+        long blue = clr & 255;
+        long White = Long.parseLong("FFe4e4e4", 16);
+        long Orange = Long.parseLong("FFea7e35", 16);
+        long Magenta = Long.parseLong("FFbe49c9", 16);
+        long Light_Blue = Long.parseLong("FF6387d2", 16);
+        long Yellow = Long.parseLong("FFc2b51c", 16);
+        long Lime_Green = Long.parseLong("FF39ba2e", 16);
+        long Pink = Long.parseLong("FFd98199", 16);
+        long Dark_Gray = Long.parseLong("FF414141", 16);
+        long Light_Gray = Long.parseLong("FFa0a7a7", 16);
+        long Cyan = Long.parseLong("FF267191", 16);
+        long Purple = Long.parseLong("FF7e34bf", 16);
+        long Blue = Long.parseLong("FF253193", 16);
+        long Brown = Long.parseLong("FF56331c", 16);
+        long Green = Long.parseLong("FF364b18", 16);
+        long Red = Long.parseLong("FF9e2b27", 16);
+        long Black = Long.parseLong("FF181414", 16);
+        int Color2 = 15;
+        if (clr < Black) {
+            --Color2;
+        }
+        if (clr < Red) {
+            --Color2;
+        }
+        if (clr < Green) {
+            --Color2;
+        }
+        if (clr < Brown) {
+            --Color2;
+        }
+        if (clr < Blue) {
+            --Color2;
+        }
+        if (clr < Purple) {
+            --Color2;
+        }
+        if (clr < Cyan) {
+            --Color2;
+        }
+        if (clr < Light_Gray) {
+            --Color2;
+        }
+        if (clr < Dark_Gray) {
+            --Color2;
+        }
+        if (clr < Pink) {
+            --Color2;
+        }
+        if (clr < Lime_Green) {
+            --Color2;
+        }
+        if (clr < Yellow) {
+            --Color2;
+        }
+        if (clr < Light_Blue) {
+            --Color2;
+        }
+        if (clr < Magenta) {
+            --Color2;
+        }
+        if (clr < Orange) {
+            --Color2;
+        }
+        String skin = "Niron";
+        Color c = Color.black;
+        try {
+            c = new Color(agars.get((Object)player).getRGB(x, y));
+            if (new Color(agars.get((Object)player).getRGB(x, y), true).getAlpha() < 255) {
+                return -1;
+            }
+        }
+        catch (NullPointerException e) {
+            agarPlayer.fetchSkin(player);
+        }
+        byte rtn = DyeColor.valueOf((String)agarPlayer.getStringFromColor(c)).getData();
+        int[] i_ = agarPlayer.getMaterialFromColor(c);
+        material = Material.getMaterial((int)i_[0]);
+        material = Material.getMaterial((int)171);
+        b = (byte)i_[1];
+        b = rtn;
+        return rtn;
+    }
+
+    public static void spawn(Player player, int color, int[] pos) {
+        int radius = 4;
+        for (int y = 0; y < 8; ++y) {
+            for (int x = 0; x < 8; ++x) {
+                agarPlayer.getSkin(player, x + 8, y + 8);
+                if (b != -1) {
+                    player.sendBlockChange(new Location(command.plugin.getServer().getWorld("world"), (double)(pos[0] + x), 4.0, (double)(pos[2] + y)), material, b);
+                }
+                //player.sendMessage("" + agarPlayer.getSkin(player, x + 8, y + 8) + "");
+                b = -1;
+                agarPlayer.getSkin(player, x + 40, y + 8);
+                if (b == -1) continue;
+                player.sendBlockChange(new Location(command.plugin.getServer().getWorld("world"), (double)(pos[0] + x), 4.0, (double)(pos[2] + y)), material, b);
+            }
+        }
+    	x.put(player, player.getLocation().getBlockX());
+    	z.put(player, player.getLocation().getBlockZ());
+    }
+
+    public static double colorDistance(Color c1, Color c2) {
+        long rm = (long)(c1.getRed() + c2.getRed()) / 2;
+        long r = c1.getRed() - c2.getRed();
+        long g = c1.getGreen() - c2.getGreen();
+        long b = c1.getBlue() - c2.getBlue();
+        return Math.sqrt(((512 + rm) * r * r >> 8) + 4 * g * g + ((767 - rm) * b * b >> 8));
+    }
+
+    public static int[] getMaterialFromColor(Color col) {
+        int closestId = 0;
+        int closestBlock = 35;
+        boolean closestData = false;
+        double d = agarPlayer.colorDistance(col, new Color(255, 255, 255));
+        for (int i = 0; i < materials.length; ++i) {
+            double currentdist = agarPlayer.colorDistance(col, new Color(materials[i][0], materials[i][1], materials[i][2]));
+            if (currentdist >= d) continue;
+            closestId = i;
+            d = currentdist;
+        }
+        return new int[]{materials[closestId][4], materials[closestId][5]};
+    }
+
+    public static String getStringFromColor(Color c) {
+        String ret = "";
+        Integer r = c.getRed();
+        Integer g = c.getGreen();
+        Integer b = c.getBlue();
+        float[] hsb = new float[3];
+        Color.RGBtoHSB(r, g, b, hsb);
+        float h = hsb[0];
+        float s = hsb[1];
+        float v = hsb[2];
+        ret = (double)s > 0.4 && (double)v > 0.2 && (double)h < 0.037 ? "RED" : ((double)s > 0.6 && (double)v > 0.7 && (double)h > 0.0333333333 && (double)h < 0.1138888888 ? "ORANGE" : ((double)s > 0.4 && (double)s < 0.61 && (double)v > 0.14 && (double)v < 0.5 && (double)h > 0.019 && (double)h < 0.038 ? "BROWN" : (s > 79.0f && (double)v > 0.14 && (double)v < 0.45 && (double)h > 0.019 && (double)h < 0.038 ? "BROWN" : ((double)s > 0.15 && (double)s < 0.4 && (double)v > 0.14 && (double)v < 0.6 && (double)h > 0.019 && (double)h < 0.038 ? "BROWN" : ((double)s > 0.15 && (double)s < 0.4 && (double)v > 0.6 && (double)v < 0.81 && (double)h > 0.019 && (double)h < 0.038 ? "RED" : ((double)s > 0.55 && (double)v > 0.41 && (double)h > 0.019 && (double)h < 0.038 ? "RED" : ((double)s > 0.15 && (double)s < 0.4 && (double)v > 0.8 && (double)h > 0.019 && (double)h < 0.038 ? "PINK" : ((double)s > 0.4 && (double)s < 0.61 && (double)v > 0.14 && (double)v < 0.75 && (double)h > 0.038 && (double)h < 0.15 ? "BROWN" : ((double)s > 0.6 && (double)s < 0.8 && (double)v > 0.09 && (double)v < 0.7 && (double)h > 0.038 && (double)h < 0.15 ? "BROWN" : ((double)s > 0.6 && (double)s < 0.8 && (double)v > 0.7 && (double)h > 0.038 && (double)h < 0.12 ? "ORANGE" : ((double)s > 0.8 && (double)v > 0.09 && (double)v < 0.7 && (double)h > 0.038 && (double)h < 0.15 ? "BROWN" : ((double)s > 0.3 && (double)v > 0.5 && (double)v < 0.8 && (double)h > 0.02 && (double)h < 0.0333333333 ? "RED" : ((double)s > 0.3 && (double)v < 0.5 && (double)h > 0.02 && (double)h < 0.0333333333 ? "BROWN" : ((double)s > 0.3 && (double)v > 0.5 && (double)v < 0.75 && (double)h > 0.0333333333 && (double)h < 0.1138888888 ? "BROWN" : ((double)s > 0.3 && (double)v < 0.55 && (double)h > 0.1138888888 && (double)h < 0.15 ? "BROWN" : ((double)s > 0.3 && (double)v > 0.55 && (double)v < 0.7 && (double)h > 0.1138888888 && (double)h < 0.15 ? "GREEN" : ((double)s < 0.41 && (double)v < 0.2 && (double)h > 0.01 && (double)h < 0.15 ? "BLACK" : ((double)s > 0.4 && (double)v < 0.35 && (double)v > 0.2 && (double)h > 0.969 ? "BROWN" : ((double)s > 0.4 && (double)v < 0.2 && (double)v > 0.1 && (double)h > 0.079999999 && (double)h < 0.1222222 ? "BROWN" : ((double)s > 0.8 && (double)v < 0.15 && (double)v > 0.05 && (double)h > 0.079999999 && (double)h < 0.1222222 ? "BROWN" : ((double)s > 0.4 && (double)v > 0.5 && (double)h > 0.1138888888 && (double)h < 0.1916666666 ? "YELLOW" : ((double)s > 0.4 && (double)v < 0.51 && (double)v > 0.1 && (double)h > 0.1138888888 && (double)h < 0.1916666666 ? "BROWN" : ((double)s > 0.4 && (double)v > 0.2 && (double)v < 0.81 && (double)h > 0.1916666666 && (double)h < 0.3805555555 ? "GREEN" : ((double)s > 0.4 && (double)v > 0.5 && (double)h > 0.1916666666 && (double)h < 0.3805555555 ? "LIME" : ((double)s > 0.2 && (double)v > 0.75 && (double)h > 0.1916666666 && (double)h < 0.3805555555 ? "LIME" : ((double)s > 0.2 && (double)v > 0.8 && (double)h > 0.3805555555 && (double)h < 0.5194444444 ? "LIGHT_BLUE" : ((double)s > 0.1 && (double)s < 0.21 && (double)v > 0.9 && (double)h > 0.3805555555 && (double)h < 0.5194444444 ? "LIGHT_BLUE" : ((double)s > 0.4 && (double)v < 0.81 && (double)v > 0.2 && (double)h > 0.3805555555 && (double)h < 0.6027777777 ? "CYAN" : ((double)s > 0.4 && (double)v > 0.2 && (double)h > 0.5194444444 && (double)h < 0.6027777777 ? "CYAN" : ((double)s > 0.4 && (double)v > 0.4 && (double)h > 0.6027777777 && (double)h < 0.6944444444 ? "BLUE" : ((double)s > 0.2 && (double)s < 0.41 && (double)v > 0.7 && (double)h > 0.6027777777 && (double)h < 0.6944444444 ? "LIGHT_BLUE" : ((double)s > 0.114 && (double)s < 0.2 && (double)v > 0.6 && (double)h > 0.6027777777 && (double)h < 0.6944444444 ? "BLUE" : ((double)s > 0.1 && (double)s < 0.2 && (double)v > 0.6 && (double)v < 0.91 && (double)h > 0.6027777777 && (double)h < 0.6944444444 ? "LIGHT_BLUE" : ((double)s > 0.114 && (double)s < 0.2 && (double)v > 0.9 && (double)h > 0.6027777777 && (double)h < 0.6944444444 ? "BLUE" : ((double)s > 0.6 && (double)v > 0.1 && (double)h > 0.6027777777 && (double)h < 0.6944444444 ? "BLUE" : ((double)s > 0.4 && (double)v > 0.3 && (double)h > 0.6944444444 && (double)h < 0.8305555555 ? "PURPLE" : ((double)s > 0.4 && (double)v > 0.4 && (double)h > 0.8305555555 && (double)h < 0.8777777777 ? "MAGENTA" : ((double)s > 0.3 && (double)v > 0.4 && (double)h > 0.8777777777 && (double)h < 0.9611111111 ? "PINK" : ((double)s > 0.4 && (double)v > 0.4 && (double)h > 0.9361111111 && (double)h < 1.0000000001 ? "RED" : ((double)s < 0.11 && (double)v > 0.9 ? "WHITE" : ((double)s < 0.11 && (double)v < 0.91 && (double)v > 0.6 ? "SILVER" : ((double)s < 0.11 && (double)v < 0.601 && (double)v > 0.2 ? "GRAY" : ((double)s < 0.11 && (double)v < 0.21 ? "BLACK" : ((double)s < 0.3 && (double)v < 0.3 && (double)v > 0.1 ? "GRAY" : ((double)s < 0.3 && (double)v < 0.11 ? "BLACK" : ((double)s < 0.7 && (double)v < 0.6 ? "BLACK" : ((double)v < 0.1 ? "BLACK" : ((double)s > 0.29 && (double)s < 0.8 && (double)v < 0.11 ? "GRAY" : ((double)s > 0.29 && (double)s < 0.6 && (double)v < 0.2 ? "GRAY" : ((double)s > 0.6 && (double)h > 0.5666666 && (double)h < 0.602777 && (double)v > 0.12 && (double)v < 0.3 ? "BLUE" : ((double)h > 0.5 && (double)h < 0.602777 && (double)v < 0.13 ? "BLACK" : ((double)h > 0.95833333 && (double)s > 0.7 && (double)v > 0.19 && (double)v < 0.4 ? "RED" : ((double)h > 0.8 && (double)h < 0.91666666 && (double)s > 0.35 && (double)v > 0.16 && (double)v < 0.4 ? "PURPLE" : ((double)h > 0.3055555 && (double)h < 0.3888888 && (double)s > 0.05 && (double)s < 0.35 && (double)v > 0.6 && (double)v < 0.8 ? "CYAN" : ((double)h > 0.38 && (double)h < 0.5833333 && (double)s > 0.05 && (double)s < 0.35 && (double)v > 0.7 && (double)v < 0.95 ? "LIGHT_BLUE" : ((double)h > 0.38 && (double)h < 0.5833333 && (double)s > 0.05 && (double)s < 0.35 && (double)v > 0.5 && (double)v < 0.71 ? "BLUE" : ((double)h > 0.5 && (double)h < 0.61 && (double)s > 0.2 && (double)v > 0.7 ? "LIGHT_BLUE" : ((double)h > 0.5 && (double)h < 0.61 && (double)s > 0.2 && (double)v < 0.71 ? "BLUE" : ((double)s < 0.31 && (double)v < 0.16 ? "BLACK" : ((double)h > 0.32 && (double)h < 0.501 && (double)s > 0.99 && (double)v < 0.12 ? "BLACK" : ((double)h > 0.53 && (double)h < 0.7 && (double)s > 0.5 && (double)v < 0.3 && (double)v > 0.15 ? "BLUE" : ((double)h > 0.4 && (double)h < 0.53 && (double)s > 0.5 && (double)v < 0.3 && (double)v > 0.15 ? "CYAN" : ((double)h < 0.4 && (double)h > 0.2777777 && (double)s > 0.5 && (double)v < 0.3 && (double)v > 0.15 ? "GREEN" : ((double)h < 0.25 && (double)h > 0.2 && (double)s > 0.6 && (double)v < 0.25 && (double)v > 0.15 ? "BROWN" : (h > 833333.0f && h < 94.0f && (double)s > 0.6 && (double)v < 0.4 && (double)v > 0.15 ? "PURPLE" : ((double)h > 0.47222222 && (double)h < 0.541 && (double)s < 0.4 && (double)s > 0.2 && (double)v > 0.8 ? "LIGHT_BLUE" : ((double)h > 0.541 && (double)h < 0.64 && (double)s < 0.4 && (double)s > 0.2 && (double)v > 0.3 ? "BLUE" : ((double)h > 0.47222222 && (double)h < 0.541 && (double)s < 0.4 && (double)s > 0.2 && (double)v < 0.5 && (double)v > 0.2 ? "BLUE" : ((double)h > 0.32 && (double)h < 0.501 && (double)s > 0.99 && (double)v < 0.12 ? "GRAY" : ((double)h > 0.85 && (double)s > 0.2 && (double)s < 0.41 && (double)v > 0.9 ? "PINK" : ((double)h > 0.763 && (double)s > 0.2 && (double)s < 0.41 && (double)v > 0.5 ? "PURPLE" : ((double)h > 0.125 && (double)h < 0.191666666 && (double)s > 0.25 && (double)s < 0.4 && (double)b.intValue() > 0.89 ? "YELLOW" : ((double)h > 0.125 && (double)h < 0.191666666 && (double)s > 0.25 && (double)s < 0.4 && (double)b.intValue() < 0.81 && (double)b.intValue() > 0.3 ? "BROWN" : ((double)h > 0.222222 && (double)h < 0.2777777777 && (double)s > 0.2 && (double)s > 0.4 && (double)b.intValue() > 0.85 ? "LIME" : ((double)h > 0.222222 && (double)h < 0.2777777777 && (double)s > 0.2 && (double)s > 0.4 && (double)b.intValue() > 0.4 && (double)b.intValue() < 0.8 ? "GREEN" : ((double)s < 0.114 && (double)b.intValue() < 0.71 && (double)b.intValue() > 0.15 ? "GRAY" : ((double)h > 0.24 && (double)h < 0.48 && (double)s > 0.6 && (double)v > 0.1 && (double)v < 0.2 ? "GREEN" : ((double)h > 0.72 && (double)h < 0.89 && (double)s > 0.6 && (double)v > 0.1 && (double)v < 0.2 ? "MAGENTA" : ((double)h > 0.75 && (double)h < 0.85 && (double)s > 0.6 && (double)v > 0.2 && (double)v < 0.4 ? "MAGENTA" : ((double)h > 0.8 && (double)h < 0.95 && (double)s > 0.9 && (double)v > 0.35 && (double)v < 0.4 ? "MAGENTA" : ((double)h > 0.68 && (double)h < 0.7 && (double)s > 0.9 && (double)v > 0.1 && (double)v < 0.2 ? "BLUE" : ((double)h > 0.97 && (double)s > 0.5 && (double)v > 0.1 && (double)v < 0.16 ? "BROWN" : ((double)h > 0.95 && (double)s > 0.7 && (double)v > 0.159 ? "RED" : ((double)h > 0.31 && (double)h < 0.45 && (double)s > 0.3 && (double)s < 0.41 && (double)v > 0.6 && (double)v < 0.8 ? "LIME" : ((double)h > 0.45 && (double)h < 0.5 && (double)s > 0.3 && (double)s < 0.41 && (double)v > 0.55 && (double)v < 0.7 ? "CYAN" : ((double)h > 0.58 && (double)h < 0.75 && (double)s > 0.2 && (double)s < 0.31 && (double)v > 0.6 && (double)v < 0.7 ? "LIGHT_BLUE" : ((double)h > 0.12 && (double)h < 0.17 && (double)s > 0.1 && (double)s < 0.25 && (double)v > 0.95 ? "YELLOW" : ((double)h > 0.89 && (double)s < 0.2 && (double)s > 0.1 && (double)v > 0.85 ? "PINK" : ((double)h > 0.79 && (double)h < 0.88 && (double)s < 0.2 && (double)s > 0.1 && (double)v < 0.86 && (double)v > 0.6 ? "PURPLE" : ((double)h > 0.62 && (double)h < 0.68 && (double)s < 0.2 && (double)s > 0.1 && (double)v < 0.9 && (double)v > 0.6 ? "BLUE" : ((double)h > 0.45 && (double)h < 0.68 && (double)s < 0.2 && (double)s > 0.1 && (double)v > 0.89 ? "LIGHT_BLUE" : ((double)h > 0.45 && (double)h < 0.62 && (double)s < 0.2 && (double)s > 0.1 && (double)v > 0.89 ? "CYAN" : ((double)h > 0.29 && (double)h < 0.41 && (double)s < 0.2 && (double)s > 0.1 && (double)v > 0.85 ? "LIME" : ((double)h > 0.29 && (double)h < 0.41 && (double)s < 0.2 && (double)s > 0.1 && (double)v > 0.5 && (double)v < 0.86 ? "GREEN" : ((double)h < 0.05 && (double)s < 0.39 && (double)s > 0.22 && (double)v > 0.85 ? "PINK" : "WHITE")))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))));
+        return ret;
+    }
+
+    public String getStringFromColorClay(Color c) {
+        String ret = "";
+        Integer r = c.getRed();
+        Integer g = c.getGreen();
+        Integer b = c.getBlue();
+        float[] hsb = new float[3];
+        Color.RGBtoHSB(r, g, b, hsb);
+        float h = hsb[0];
+        float s = hsb[1];
+        float v = hsb[2];
+        ret = (double)s > 0.4 && (double)v > 0.2 && (double)h < 0.037 ? "RED" : ((double)s > 0.6 && (double)v > 0.7 && (double)h > 0.0333333333 && (double)h < 0.1138888888 ? "ORANGE" : ((double)s > 0.4 && (double)s < 0.61 && (double)v > 0.14 && (double)v < 0.5 && (double)h > 0.019 && (double)h < 0.038 ? "BROWN" : (s > 79.0f && (double)v > 0.14 && (double)v < 0.45 && (double)h > 0.019 && (double)h < 0.038 ? "BROWN" : ((double)s > 0.15 && (double)s < 0.4 && (double)v > 0.14 && (double)v < 0.6 && (double)h > 0.019 && (double)h < 0.038 ? "BROWN" : ((double)s > 0.15 && (double)s < 0.4 && (double)v > 0.6 && (double)v < 0.81 && (double)h > 0.019 && (double)h < 0.038 ? "RED" : ((double)s > 0.55 && (double)v > 0.41 && (double)h > 0.019 && (double)h < 0.038 ? "RED" : ((double)s > 0.15 && (double)s < 0.4 && (double)v > 0.8 && (double)h > 0.019 && (double)h < 0.038 ? "PINK" : ((double)s > 0.4 && (double)s < 0.61 && (double)v > 0.14 && (double)v < 0.75 && (double)h > 0.038 && (double)h < 0.15 ? "BROWN" : ((double)s > 0.6 && (double)s < 0.8 && (double)v > 0.09 && (double)v < 0.7 && (double)h > 0.038 && (double)h < 0.15 ? "BROWN" : ((double)s > 0.6 && (double)s < 0.8 && (double)v > 0.7 && (double)h > 0.038 && (double)h < 0.12 ? "ORANGE" : ((double)s > 0.8 && (double)v > 0.09 && (double)v < 0.7 && (double)h > 0.038 && (double)h < 0.15 ? "BROWN" : ((double)s > 0.3 && (double)v > 0.5 && (double)v < 0.8 && (double)h > 0.02 && (double)h < 0.0333333333 ? "RED" : ((double)s > 0.3 && (double)v < 0.5 && (double)h > 0.02 && (double)h < 0.0333333333 ? "BROWN" : ((double)s > 0.3 && (double)v > 0.5 && (double)v < 0.75 && (double)h > 0.0333333333 && (double)h < 0.1138888888 ? "BROWN" : ((double)s > 0.3 && (double)v < 0.55 && (double)h > 0.1138888888 && (double)h < 0.15 ? "BROWN" : ((double)s > 0.3 && (double)v > 0.55 && (double)v < 0.7 && (double)h > 0.1138888888 && (double)h < 0.15 ? "GREEN" : ((double)s < 0.41 && (double)v < 0.2 && (double)h > 0.01 && (double)h < 0.15 ? "BLACK" : ((double)s > 0.4 && (double)v < 0.35 && (double)v > 0.2 && (double)h > 0.969 ? "BROWN" : ((double)s > 0.4 && (double)v < 0.2 && (double)v > 0.1 && (double)h > 0.079999999 && (double)h < 0.1222222 ? "BROWN" : ((double)s > 0.8 && (double)v < 0.15 && (double)v > 0.05 && (double)h > 0.079999999 && (double)h < 0.1222222 ? "BROWN" : ((double)s > 0.4 && (double)v > 0.5 && (double)h > 0.1138888888 && (double)h < 0.1916666666 ? "YELLOW" : ((double)s > 0.4 && (double)v < 0.51 && (double)v > 0.1 && (double)h > 0.1138888888 && (double)h < 0.1916666666 ? "BROWN" : ((double)s > 0.4 && (double)v > 0.2 && (double)v < 0.81 && (double)h > 0.1916666666 && (double)h < 0.3805555555 ? "GREEN" : ((double)s > 0.4 && (double)v > 0.5 && (double)h > 0.1916666666 && (double)h < 0.3805555555 ? "LIME" : ((double)s > 0.2 && (double)v > 0.75 && (double)h > 0.1916666666 && (double)h < 0.3805555555 ? "LIME" : ((double)s > 0.2 && (double)v > 0.8 && (double)h > 0.3805555555 && (double)h < 0.5194444444 ? "LIGHT_BLUE" : ((double)s > 0.1 && (double)s < 0.21 && (double)v > 0.9 && (double)h > 0.3805555555 && (double)h < 0.5194444444 ? "LIGHT_BLUE" : ((double)s > 0.4 && (double)v < 0.81 && (double)v > 0.2 && (double)h > 0.3805555555 && (double)h < 0.6027777777 ? "CYAN" : ((double)s > 0.4 && (double)v > 0.2 && (double)h > 0.5194444444 && (double)h < 0.6027777777 ? "CYAN" : ((double)s > 0.4 && (double)v > 0.4 && (double)h > 0.6027777777 && (double)h < 0.6944444444 ? "BLUE" : ((double)s > 0.2 && (double)s < 0.41 && (double)v > 0.7 && (double)h > 0.6027777777 && (double)h < 0.6944444444 ? "LIGHT_BLUE" : ((double)s < 0.2 && (double)v > 0.6 && (double)h > 0.6027777777 && (double)h < 0.6944444444 ? "BLUE" : ((double)s > 0.1 && (double)s < 0.2 && (double)v > 0.6 && (double)v < 0.91 && (double)h > 0.6027777777 && (double)h < 0.6944444444 ? "LIGHT_BLUE" : ((double)s > 0.1 && (double)s < 0.2 && (double)v > 0.9 && (double)h > 0.6027777777 && (double)h < 0.6944444444 ? "BLUE" : ((double)s > 0.6 && (double)v > 0.1 && (double)h > 0.6027777777 && (double)h < 0.6944444444 ? "BLUE" : ((double)s > 0.4 && (double)v > 0.3 && (double)h > 0.6944444444 && (double)h < 0.8305555555 ? "PURPLE" : ((double)s > 0.4 && (double)v > 0.4 && (double)h > 0.8305555555 && (double)h < 0.8777777777 ? "MAGENTA" : ((double)s > 0.3 && (double)v > 0.4 && (double)h > 0.8777777777 && (double)h < 0.9611111111 ? "PINK" : ((double)s > 0.4 && (double)v > 0.4 && (double)h > 0.9361111111 && (double)h < 1.0000000001 ? "RED" : ((double)s < 0.1 && (double)v > 0.9 ? "WHITE" : ((double)s < 0.1 && (double)v < 0.91 && (double)v > 0.7 ? "SILVER" : ((double)s < 0.1 && (double)v < 0.71 && (double)v > 0.2 ? "SILVER" : ((double)s < 0.1 && (double)v < 0.21 ? "BLACK" : ((double)s < 0.3 && (double)v < 0.3 && (double)v > 0.1 ? "GRAY" : ((double)s < 0.3 && (double)v < 0.11 ? "BLACK" : ((double)s < 0.7 && (double)v < 0.6 ? "BLACK" : ((double)v < 0.1 ? "BLACK" : ((double)s > 0.29 && (double)s < 0.8 && (double)v < 0.11 ? "GRAY" : ((double)s > 0.29 && (double)s < 0.6 && (double)v < 0.2 ? "GRAY" : ((double)s > 0.6 && (double)h > 0.5666666 && (double)h < 0.602777 && (double)v > 0.12 && (double)v < 0.3 ? "BLUE" : ((double)h > 0.5 && (double)h < 0.602777 && (double)v < 0.13 ? "BLACK" : ((double)h > 0.95833333 && (double)s > 0.7 && (double)v > 0.19 && (double)v < 0.4 ? "RED" : ((double)h > 0.8 && (double)h < 0.91666666 && (double)s > 0.35 && (double)v > 0.16 && (double)v < 0.4 ? "PURPLE" : ((double)h > 0.3055555 && (double)h < 0.3888888 && (double)s < 0.35 && (double)v > 0.6 && (double)v < 0.8 ? "CYAN" : ((double)h > 0.38 && (double)h < 0.5833333 && (double)s < 0.35 && (double)v > 0.7 && (double)v < 0.95 ? "LIGHT_BLUE" : ((double)h > 0.38 && (double)h < 0.5833333 && (double)s < 0.35 && (double)v > 0.5 && (double)v < 0.71 ? "BLUE" : ((double)h > 0.5 && (double)h < 0.61 && (double)s > 0.2 && (double)v > 0.7 ? "LIGHT_BLUE" : ((double)h > 0.5 && (double)h < 0.61 && (double)s > 0.2 && (double)v < 0.71 ? "BLUE" : ((double)s < 0.31 && (double)v < 0.16 ? "BLACK" : ((double)h > 0.32 && (double)h < 0.501 && (double)s > 0.99 && (double)v < 0.12 ? "BLACK" : ((double)h > 0.53 && (double)h < 0.7 && (double)s > 0.5 && (double)v < 0.3 && (double)v > 0.15 ? "BLUE" : ((double)h > 0.4 && (double)h < 0.53 && (double)s > 0.5 && (double)v < 0.3 && (double)v > 0.15 ? "CYAN" : ((double)h < 0.4 && (double)h > 0.2777777 && (double)s > 0.5 && (double)v < 0.3 && (double)v > 0.15 ? "GREEN" : ((double)h < 0.25 && (double)h > 0.2 && (double)s > 0.6 && (double)v < 0.25 && (double)v > 0.15 ? "BROWN" : (h > 833333.0f && h < 94.0f && (double)s > 0.6 && (double)v < 0.4 && (double)v > 0.15 ? "PURPLE" : ((double)h > 0.47222222 && (double)h < 0.541 && (double)s < 0.4 && (double)s > 0.2 && (double)v > 0.8 ? "LIGHT_BLUE" : ((double)h > 0.541 && (double)h < 0.64 && (double)s < 0.4 && (double)s > 0.2 && (double)v > 0.3 ? "BLUE" : ((double)h > 0.47222222 && (double)h < 0.541 && (double)s < 0.4 && (double)s > 0.2 && (double)v < 0.5 && (double)v > 0.2 ? "BLUE" : ((double)h > 0.32 && (double)h < 0.501 && (double)s > 0.99 && (double)v < 0.12 ? "GRAY" : ((double)h > 0.85 && (double)s > 0.2 && (double)s < 0.41 && (double)v > 0.9 ? "PINK" : ((double)h > 0.763 && (double)s > 0.2 && (double)s < 0.41 && (double)v > 0.5 ? "PURPLE" : ((double)h > 0.125 && (double)h < 0.191666666 && (double)s > 0.25 && (double)s < 0.4 && (double)b.intValue() > 0.89 ? "YELLOW" : ((double)h > 0.125 && (double)h < 0.191666666 && (double)s > 0.25 && (double)s < 0.4 && (double)b.intValue() < 0.81 && (double)b.intValue() > 0.3 ? "BROWN" : ((double)h > 0.222222 && (double)h < 0.2777777777 && (double)s > 0.2 && (double)s > 0.4 && (double)b.intValue() > 0.85 ? "LIME" : ((double)h > 0.222222 && (double)h < 0.2777777777 && (double)s > 0.2 && (double)s > 0.4 && (double)b.intValue() > 0.4 && (double)b.intValue() < 0.8 ? "GREEN" : ((double)s < 0.11 && (double)b.intValue() > 0.9 ? "WHITE" : ((double)s < 0.11 && (double)b.intValue() < 0.91 && (double)b.intValue() > 0.7 ? "SILVER" : ((double)s < 0.11 && (double)b.intValue() < 0.71 && (double)b.intValue() > 0.15 ? "GRAY" : ((double)h > 0.24 && (double)h < 0.48 && (double)s > 0.6 && (double)v > 0.1 && (double)v < 0.2 ? "GREEN" : ((double)h > 0.72 && (double)h < 0.89 && (double)s > 0.6 && (double)v > 0.1 && (double)v < 0.2 ? "MAGENTA" : ((double)h > 0.75 && (double)h < 0.85 && (double)s > 0.6 && (double)v > 0.2 && (double)v < 0.4 ? "MAGENTA" : ((double)h > 0.8 && (double)h < 0.95 && (double)s > 0.9 && (double)v > 0.35 && (double)v < 0.4 ? "MAGENTA" : ((double)h > 0.68 && (double)h < 0.7 && (double)s > 0.9 && (double)v > 0.1 && (double)v < 0.2 ? "BLUE" : ((double)h > 0.97 && (double)s > 0.5 && (double)v > 0.1 && (double)v < 0.16 ? "BROWN" : ((double)h > 0.95 && (double)s > 0.7 && (double)v > 0.159 ? "RED" : ((double)h > 0.31 && (double)h < 0.45 && (double)s > 0.3 && (double)s < 0.41 && (double)v > 0.6 && (double)v < 0.8 ? "LIME" : ((double)h > 0.45 && (double)h < 0.5 && (double)s > 0.3 && (double)s < 0.41 && (double)v > 0.55 && (double)v < 0.7 ? "CYAN" : ((double)h > 0.58 && (double)h < 0.75 && (double)s > 0.2 && (double)s < 0.31 && (double)v > 0.6 && (double)v < 0.7 ? "LIGHT_BLUE" : ((double)h > 0.12 && (double)h < 0.17 && (double)s > 0.1 && (double)s < 0.25 && (double)v > 0.95 ? "YELLOW" : ((double)h > 0.89 && (double)s < 0.2 && (double)s > 0.1 && (double)v > 0.85 ? "PINK" : ((double)h > 0.79 && (double)h < 0.88 && (double)s < 0.2 && (double)s > 0.1 && (double)v < 0.86 && (double)v > 0.6 ? "PURPLE" : ((double)h > 0.62 && (double)h < 0.68 && (double)s < 0.2 && (double)s > 0.1 && (double)v < 0.9 && (double)v > 0.6 ? "BLUE" : ((double)h > 0.45 && (double)h < 0.68 && (double)s < 0.2 && (double)s > 0.1 && (double)v > 0.89 ? "LIGHT_BLUE" : ((double)h > 0.45 && (double)h < 0.62 && (double)s < 0.2 && (double)s > 0.1 && (double)v > 0.89 ? "CYAN" : ((double)h > 0.29 && (double)h < 0.41 && (double)s < 0.2 && (double)s > 0.1 && (double)v > 0.85 ? "LIME" : ((double)h > 0.29 && (double)h < 0.41 && (double)s < 0.2 && (double)s > 0.1 && (double)v > 0.5 && (double)v < 0.86 ? "GREEN" : ((double)h < 0.05 && (double)s < 0.39 && (double)s > 0.22 && (double)v > 0.85 ? "PINK" : "WHITE")))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))));
+        return ret;
+    }
+
+}

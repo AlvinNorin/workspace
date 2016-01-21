@@ -1,0 +1,98 @@
+package io.github.alvinnorin.agar;
+
+import io.github.alvinnorin.agar.command;
+import org.bukkit.Bukkit;
+import org.bukkit.ChatColor;
+import org.bukkit.Server;
+import org.bukkit.World;
+import org.bukkit.block.Block;
+import org.bukkit.block.BlockState;
+import org.bukkit.block.Sign;
+import org.bukkit.entity.Player;
+import org.bukkit.plugin.Plugin;
+import org.bukkit.scheduler.BukkitScheduler;
+import org.bukkit.scoreboard.Objective;
+
+public class schedule {
+    static String signstr1 = "         C R Y S T A L   G A R D E N S   3   M I N         ";
+    static int signcount1 = 0;
+    static String signstr2 = "         A L P H A   S Q U A R E   0   M I N         ";
+    static int signcount2 = 0;
+    static int debug = 0;
+    static String sched = "";
+    static int che = 0;
+    static String strr = "   SCOREBOARD   ";
+
+    public static void enable(Plugin plugin) {
+        schedule.schedule(plugin);
+        schedule.sign(plugin);
+    }
+
+    public static void sign(final Plugin plugin) {
+        plugin.getServer().getScheduler().scheduleSyncDelayedTask(plugin, new Runnable(){
+
+            public void run() {
+                try {
+                    Block b1 = plugin.getServer().getWorld("world").getBlockAt(-180, 19, -272);
+                    Sign s1 = (Sign)b1.getState();
+                    schedule.signcount1 = schedule.signcount1 == schedule.signstr1.length() - 1 ? 0 : ++schedule.signcount1;
+                    String str1 = "" + schedule.signstr1.substring(schedule.signcount1, schedule.signstr1.length()) + schedule.signstr1.substring(0, schedule.signcount1);
+                    s1.setLine(2, (Object)ChatColor.DARK_RED + str1);
+                    s1.update();
+                    Block b2 = plugin.getServer().getWorld("world").getBlockAt(-189, 19, -272);
+                    Sign s2 = (Sign)b2.getState();
+                    schedule.signcount2 = schedule.signcount2 == schedule.signstr2.length() - 1 ? 0 : ++schedule.signcount2;
+                    String str2 = "" + schedule.signstr2.substring(schedule.signcount2, schedule.signstr2.length()) + schedule.signstr2.substring(0, schedule.signcount2);
+                    s2.setLine(2, (Object)ChatColor.DARK_RED + str2);
+                    s2.update();
+                }
+                catch (ClassCastException b1) {
+                    // empty catch block
+                }
+                schedule.sign(plugin);
+            }
+        }, 3);
+    }
+
+    public static void schedule(final Plugin plugin) {
+        plugin.getServer().getScheduler().scheduleSyncDelayedTask(plugin, new Runnable(){
+
+            public void run() {
+                for (Player online : Bukkit.getOnlinePlayers()) {
+                    command.objective.setDisplayName((Object)ChatColor.RED + schedule.sched);
+                }
+                schedule.che = schedule.che == schedule.strr.length() - 1 ? 0 : ++schedule.che;
+                schedule.sched = "";
+                int end = schedule.che + 3;
+                int endi = schedule.che + 3;
+                if (end > schedule.strr.length()) {
+                    end = schedule.strr.length();
+                }
+                if (endi > schedule.strr.length()) {
+                    endi = schedule.strr.length();
+                }
+                schedule.sched = "" + (Object)ChatColor.GRAY + schedule.strr.substring(0, schedule.che) + (Object)ChatColor.WHITE + schedule.strr.substring(schedule.che, endi) + (Object)ChatColor.GRAY + schedule.strr.substring(end, schedule.strr.length());
+                schedule.strr.substring(schedule.che, schedule.strr.length());
+                ++schedule.debug;
+                schedule.schedule(plugin);
+            }
+        }, 1);
+    }
+
+    public static void renderOthers(final Plugin plugin) {
+        plugin.getServer().getScheduler().scheduleSyncDelayedTask(plugin, new Runnable(){
+
+            public void run() {
+                for (Player online : Bukkit.getOnlinePlayers()) {
+                    int x = agarPlayer.x.get((Object)online.getPlayer());
+                    int z = agarPlayer.z.get((Object)event.getPlayer());
+                    int[] pos = new int[]{x, 4, z};
+                    int[] nev = new int[]{event.getPlayer().getLocation().getBlockX()-4, 4, event.getPlayer().getLocation().getBlockZ()-4};
+                    agarPlayer.clean(event.getPlayer(), pos, nev);
+                }
+                schedule.schedule(plugin);
+            }
+        }, 1);
+    }
+    
+}
